@@ -1,0 +1,14 @@
+server {
+        listen 443 ssl;
+        listen [::]:443;
+
+        root /var/www/toiletsniffer.home.local;
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name toiletsniffer.home.local www.toiletsniffer.home.local;
+        ssl_certificate /home/malcolm/certs/home.crt;
+        ssl_certificate_key /home/malcolm/certs/home.key;
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
